@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "415005979921",
+    "project_id": "folha-de-ponto-eb9b0",
+    "storage_bucket": "folha-de-ponto-eb9b0.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:415005979921:android:f3c1f68701c074208888b0",
+        "android_client_info": {
+          "package_name": "com.rafael.folhadeponto"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCoEF83OEh7925gZ6OB2vcu-tqZV7_Cqu8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

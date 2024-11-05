@@ -13,6 +13,11 @@
         android:theme="@style/Theme.FolhaDePonto"
         tools:targetApi="31">
         <activity
+            android:name=".MenuLateral"
+            android:exported="false"
+            android:label="@string/title_activity_menu_lateral"
+            android:theme="@style/Theme.FolhaDePonto.NoActionBar" />
+        <activity
             android:name=".TelaPrincipal"
             android:exported="false" />
         <activity

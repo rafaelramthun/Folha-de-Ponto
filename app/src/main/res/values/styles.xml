@@ -33,4 +33,8 @@
         <item name="android:background">@drawable/button</item>
     </style>
 
+    <style name="Widget.Support.CoordinatorLayout" parent="android:Widget">
+        @null
+    </style>
+
 </resources>

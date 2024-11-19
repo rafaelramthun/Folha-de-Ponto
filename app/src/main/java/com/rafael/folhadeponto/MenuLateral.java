@@ -4,18 +4,28 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
 import androidx.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.core.view.GravityCompat;
+import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -30,10 +40,6 @@ public class MenuLateral extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityMenuLateralBinding binding;
-    private TextView nomeUsuario,emailUsuario;
-    private Button bt_deslogar;
-    FirebaseFirestore db = FirebaseFirestore.getInstance();
-    String usuarioID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,18 +61,6 @@ public class MenuLateral extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_menu_lateral);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
-
-        IniciarComponentes();
-
-        bt_deslogar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                FirebaseAuth.getInstance().signOut();
-                Intent intent = new Intent(MenuLateral.this,FormLogin.class);
-                startActivity(intent);
-                finish();
-            }
-        });
     }
 
     @Override
@@ -82,29 +76,5 @@ public class MenuLateral extends AppCompatActivity {
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
     }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-
-        String email = FirebaseAuth.getInstance().getCurrentUser().getEmail();
-        usuarioID = FirebaseAuth.getInstance().getCurrentUser().getUid();
-
-        DocumentReference documentReference = db.collection("Usuarios").document(usuarioID);
-        documentReference.addSnapshotListener(new EventListener<DocumentSnapshot>() {
-            @Override
-            public void onEvent(@Nullable DocumentSnapshot documentSnapshot, @Nullable FirebaseFirestoreException error) {
-                if (documentSnapshot != null) {
-                    nomeUsuario.setText(documentSnapshot.getString("nome"));
-                    emailUsuario.setText(email);
-                }
-            }
-        });
-    }
-
-    private void IniciarComponentes(){
-        nomeUsuario = findViewById(R.id.textNomeUsuario);
-        emailUsuario = findViewById(R.id.textEmailUsuario);
-        bt_deslogar = findViewById(R.id.bt_deslogar);
-    }
 }
+

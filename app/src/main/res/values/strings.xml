@@ -4,8 +4,8 @@
     <string name="text_cadastro">Clique aqui para primeiro acesso</string>
     <string name="title_cadastro">Cadastre-se</string>
     <string name="title_activity_menu_lateral">MenuLateral</string>
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_abrir">Abrir</string>
+    <string name="nav_fechar">Fechar</string>
     <string name="nav_header_title">Android Studio</string>
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>

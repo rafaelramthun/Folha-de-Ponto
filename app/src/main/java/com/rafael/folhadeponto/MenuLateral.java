@@ -55,12 +55,13 @@ public class MenuLateral extends AppCompatActivity {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow, R.id.nav_sair)
+                R.id.nav_ajuda, R.id.nav_configuracoes, R.id.nav_home, R.id.nav_incricoes, R.id.nav_mensagens, R.id.nav_ponto_eletronico, R.id.nav_rh, R.id.nav_sair)
                 .setOpenableLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_menu_lateral);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+
     }
 
     @Override
@@ -75,6 +76,22 @@ public class MenuLateral extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_menu_lateral);
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if(item.getItemId()==R.id.nav_sair){
+            logout();
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    private void logout(){
+
+        FirebaseAuth.getInstance().signOut();
+        Intent intent = new Intent(getApplicationContext(), FormLogin.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
     }
 }
 

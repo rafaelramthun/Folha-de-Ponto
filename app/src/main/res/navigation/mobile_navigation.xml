@@ -6,10 +6,17 @@
     app:startDestination="@+id/nav_home">
 
     <fragment
-        android:id="@+id/nav_sair"
-        android:name="com.rafael.folhadeponto.ui.sair.SairFragment"
-        android:label="@string/menu_sair"
-        tools:layout="@layout/fragment_sair" />
+        android:id="@+id/nav_ajuda"
+        android:name="com.rafael.folhadeponto.ui.ajuda.AjudaFragment"
+        android:label="@string/menu_ajuda"
+        tools:layout="@layout/fragment_ajuda" />
+
+    <fragment
+        android:id="@+id/nav_configuracoes"
+        android:name="com.rafael.folhadeponto.ui.configuracoes.ConfiguracoesFragment"
+        android:label="@string/menu_configuracoes"
+        tools:layout="@layout/fragment_configuracoes" />
+
     <fragment
         android:id="@+id/nav_home"
         android:name="com.rafael.folhadeponto.ui.home.HomeFragment"
@@ -17,14 +24,32 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/nav_gallery"
-        android:name="com.rafael.folhadeponto.ui.gallery.GalleryFragment"
-        android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
+        android:id="@+id/nav_incricoes"
+        android:name="com.rafael.folhadeponto.ui.inscricoes.IncricoesFragment"
+        android:label="@string/menu_inscricoes"
+        tools:layout="@layout/fragment_incricoes" />
 
     <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="com.rafael.folhadeponto.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
+        android:id="@+id/nav_mensagens"
+        android:name="com.rafael.folhadeponto.ui.mensagens.MensagensFragment"
+        android:label="@string/menu_mensagens"
+        tools:layout="@layout/fragment_mensagens" />
+
+    <fragment
+        android:id="@+id/nav_ponto_eletronico"
+        android:name="com.rafael.folhadeponto.ui.pontoEletronico.PontoEletronicoFragment"
+        android:label="@string/menu_ponto_eletronico"
+        tools:layout="@layout/fragment_ponto_eletronico" />
+
+    <fragment
+        android:id="@+id/nav_rh"
+        android:name="com.rafael.folhadeponto.ui.rh.RhFragment"
+        android:label="@string/menu_rh"
+        tools:layout="@layout/fragment_rh" />
+
+    <fragment
+        android:id="@+id/nav_sair"
+        android:name="com.rafael.folhadeponto.ui.sair.SairFragment"
+        android:label="@string/menu_sair"
+        tools:layout="@layout/fragment_sair" />
 </navigation>

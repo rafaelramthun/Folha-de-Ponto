@@ -1,16 +1,16 @@
-package com.rafael.folhadeponto.ui.slideshow;
+package com.rafael.folhadeponto.ui.mensagens;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class SlideshowViewModel extends ViewModel {
+public class MensagensViewModel extends ViewModel {
 
     private final MutableLiveData<String> mText;
 
-    public SlideshowViewModel() {
+    public MensagensViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is slideshow fragment");
+        mText.setValue("This is mensagens fragment");
     }
 
     public LiveData<String> getText() {

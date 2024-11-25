@@ -9,18 +9,25 @@
             android:icon="@drawable/ic_home"
             android:title="@string/menu_home" />
         <item
-            android:id="@+id/nav_ponto_eletronico"
-            android:icon="@drawable/ic_clock"
-            android:title="@string/menu_ponto_eletronico" />
-        <item
             android:id="@+id/nav_mensagens"
             android:icon="@drawable/ic_message"
             android:title="@string/menu_mensagens" />
-        <item
-            android:id="@+id/nav_incricoes"
-            android:icon="@drawable/ic_assignment"
-            android:title="@string/menu_inscricoes"/>
     </group>
+
+    <item
+        android:title="Ponto Eletrônico">
+
+        <menu>
+            <item
+                android:id="@+id/nav_ponto"
+                android:icon="@drawable/ic_clock"
+                android:title="@string/menu_ponto" />
+            <item
+                android:id="@+id/nav_espelho_de_ponto"
+                android:icon="@drawable/ic_assignment"
+                android:title="@string/menu_espelho_ponto"/>
+        </menu>
+    </item>
 
     <item
         android:title="Solicitações">

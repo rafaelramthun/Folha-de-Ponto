@@ -63,7 +63,12 @@ public class FormCadastro extends AppCompatActivity {
                     snackbar.setBackgroundTint(Color.WHITE);
                     snackbar.setTextColor(Color.BLACK);
                     snackbar.show();
-                }else{
+                } /*else if (!validarSenha(senha)) {  // Verifica se a senha é válida
+                    Snackbar snackbar = Snackbar.make(view, "A senha deve conter letras, números e caracteres especiais.", Snackbar.LENGTH_SHORT);
+                    snackbar.setBackgroundTint(Color.WHITE);
+                    snackbar.setTextColor(Color.BLACK);
+                    snackbar.show();
+                }*/ else {
                     CadastrarUsuario(view);
                 }
             }
@@ -82,6 +87,8 @@ public class FormCadastro extends AppCompatActivity {
                 if (task.isSuccessful()){
 
                     SalvarDadosUsuarios();
+                    FirebaseAuth.getInstance().signOut();
+                    limparCampos();
 
                     Snackbar snackbar = Snackbar.make(view,mensagens[1],Snackbar.LENGTH_SHORT);
                     snackbar.setBackgroundTint(Color.WHITE);
@@ -91,7 +98,6 @@ public class FormCadastro extends AppCompatActivity {
                     String erro;
                     try {
                         throw task.getException();
-
                     }catch (FirebaseAuthWeakPasswordException e) {
                         erro = "Digite uma senha com no mínimo 6 caracteres";
                     }catch (FirebaseAuthUserCollisionException e) {
@@ -134,6 +140,18 @@ public class FormCadastro extends AppCompatActivity {
                 Log.d("db_error","Erro ao salvar os dados" + e.toString());
             }
         });
+    }
+
+    /*private boolean validarSenha(String senha) {
+        // Expressão regular para validar senha com letra, número e caractere especial
+        String regex = "^(?=.*[A-Za-z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{6,}$";
+        return senha.matches(regex);  // Retorna true se a senha for válida
+    }*/
+
+    private void limparCampos() {
+        edit_nome.setText("");
+        edit_email.setText("");
+        edit_senha.setText("");
     }
 
     private void IniciarComponentes(){

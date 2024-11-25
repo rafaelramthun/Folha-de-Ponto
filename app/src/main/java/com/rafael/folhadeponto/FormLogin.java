@@ -89,14 +89,14 @@ public class FormLogin extends AppCompatActivity {
                         public void run() {
                             TelaPrincipal();
                         }
-                    },3000);
+                    },2000);
                 }else{
                     String erro;
 
                     try {
                         throw task.getException();
                     }catch (Exception e){
-                        erro = "Erro ao logar usuário";
+                        erro = "Usuário não cadastrado";
                     }
                     Snackbar snackbar = Snackbar.make(v,erro,Snackbar.LENGTH_SHORT);
                     snackbar.setBackgroundTint(Color.WHITE);
@@ -119,7 +119,7 @@ public class FormLogin extends AppCompatActivity {
     }
 
     private void TelaPrincipal(){
-        Intent intent = new Intent(FormLogin.this,MenuLateral.class);
+        Intent intent = new Intent(FormLogin.this, MenuLateral.class);
         startActivity(intent);
         finish();
     }

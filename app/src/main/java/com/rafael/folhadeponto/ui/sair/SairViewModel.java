@@ -10,7 +10,7 @@ public class SairViewModel extends ViewModel {
 
     public SairViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is sair fragment");
+        mText.setValue("");
     }
 
     public LiveData<String> getText() {

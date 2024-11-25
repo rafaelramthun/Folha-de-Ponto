@@ -1,16 +1,16 @@
-package com.rafael.folhadeponto.ui.pontoEletronico;
+package com.rafael.folhadeponto.ui.ponto;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class PontoEletronicoViewModel extends ViewModel {
+public class PontoViewModel extends ViewModel {
 
     private final MutableLiveData<String> mText;
 
-    public PontoEletronicoViewModel() {
+    public PontoViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is Ponto Eletrônico fragment");
+        mText.setValue("");
     }
 
     public LiveData<String> getText() {

@@ -9,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId = "com.rafael.folhadeponto"
-        minSdk = 24
+        minSdk = 26
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
@@ -33,6 +33,11 @@ android {
     }
     buildFeatures {
         viewBinding = true
+    }
+    allprojects {
+        configurations.all {
+            resolutionStrategy.force("org.objenesis:objenesis:2.6'");
+        }
     }
 }
 
@@ -58,5 +63,13 @@ dependencies {
     implementation(platform("com.google.firebase:firebase-bom:33.5.1"))
     implementation("com.google.firebase:firebase-auth-ktx")
     implementation("com.google.firebase:firebase-firestore-ktx")
+    implementation("com.google.firebase:firebase-database")
+    implementation("com.google.firebase:firebase-storage:20.1.0")
+
+    implementation("com.github.bumptech.glide:glide:4.15.1")
+    annotationProcessor("com.github.bumptech.glide:compiler:4.15.1")
+
+    implementation("org.apache.poi:poi:5.2.3")
+    implementation("org.apache.poi:poi-ooxml:5.2.3")
 }
 

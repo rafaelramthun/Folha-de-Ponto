@@ -56,19 +56,34 @@ public class PontoFragment extends Fragment {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 String tipo;
+                String dataAtual = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
+
                 if (snapshot.exists()) {
                     // Obtém o último registro
                     DataSnapshot ultimoRegistro = snapshot.getChildren().iterator().next();
                     String tipoUltimo = ultimoRegistro.child("tipo").getValue(String.class);
+                    String dataHoraUltimo = ultimoRegistro.child("dataHora").getValue(String.class);
 
-                    // Define o próximo tipo de registro
-                    tipo = "Saída".equals(tipoUltimo) ? "Entrada" : "Saída";
+                    try {
+                        // Extrai a data do último registro
+                        String dataUltimaBatida = dataHoraUltimo.split(" ")[0];
+
+                        // Verifica se o último registro é do mesmo dia
+                        if (dataUltimaBatida.equals(dataAtual)) {
+                            // Alterna entre "Entrada" e "Saída" para o mesmo dia
+                            tipo = "Saída".equals(tipoUltimo) ? "Entrada" : "Saída";
+                        } else {
+                            // Se for um dia diferente, inicia com "Entrada"
+                            tipo = "Entrada";
+                        }
+                    } catch (Exception e) {
+                        // Em caso de erro ao processar o último registro, inicia com "Entrada"
+                        tipo = "Entrada";
+                    }
                 } else {
                     // Se não houver registros, o primeiro será "Entrada"
                     tipo = "Entrada";
                 }
-
-                // Salva o novo registro
                 salvarRegistroPonto(tipo);
             }
 

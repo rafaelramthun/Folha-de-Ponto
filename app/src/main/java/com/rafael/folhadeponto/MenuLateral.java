@@ -23,6 +23,7 @@ import com.google.android.material.navigation.NavigationView;
 
 import androidx.annotation.Nullable;
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.core.content.FileProvider;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
@@ -75,6 +76,20 @@ public class MenuLateral extends AppCompatActivity {
 
         DrawerLayout drawer = binding.drawerLayout;
         NavigationView navigationView = binding.navView;
+
+        // Configura o botão de menu
+        mAppBarConfiguration = new AppBarConfiguration.Builder(
+                R.id.nav_home, R.id.nav_mensagens, R.id.nav_ponto, R.id.nav_espelho_de_ponto,
+                R.id.nav_rh, R.id.nav_ajuda, R.id.nav_configuracoes, R.id.nav_sair)
+                .setOpenableLayout(drawer)
+                .build();
+
+        // Adiciona o botão de abrir/fechar o Menu Lateral
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, drawer, binding.appBarMenuLateral.toolbar,
+                R.string.nav_abrir, R.string.nav_fechar);
+        drawer.addDrawerListener(toggle);
+        toggle.syncState();
 
         // Carrega o HomeFragment automaticamente ao iniciar
         if (savedInstanceState == null) {
